@@ -1,30 +1,19 @@
-
 //////////////////////////////////////ARRAY TASKS////////////////////////////////////
 
 // The output of the function should be 8
-// var arrayOfIntegers = [2, 5, 1, 4, 9, 6, 3, 7];
-// var upperBound = 9;
-// var lowerBound = 1;
-
-// findMissingNumber(arrayOfIntegers, upperBound, lowerBound); // 8
-
-// function findMissingNumber(arrayOfIntegers, upperBound, lowerBound) {
-//   // Iterate through array to find the sum of the numbers
-
-// let sumOfIntegers=arrayOfIntegers.reduce((acc,curr)=>acc+curr,0)
-//   // Find theoretical sum of the consecutive numbers using a variation of Gauss Sum.
-//   // Formula: [(N * (N + 1)) / 2] - [(M * (M - 1)) / 2];
-//   // N is the upper bound and M is the lower bound
-
-//   upperLimitSum = (upperBound * (upperBound + 1)) / 2;
-//   lowerLimitSum = (lowerBound * (lowerBound - 1)) / 2;
-
-//   theoreticalSum = upperLimitSum - lowerLimitSum;
-
-//   return theoreticalSum - sumOfIntegers;
-// }
-// console.log(findMissingNumber([2, 5, 1, 4, 9, 6, 3, 7],9,1));
-
+let arrayOfIntegers = [2, 5, 1, 4, 9, 6, 3, 7];
+function findMisingElem(array) {
+  let max = Math.max(...array);
+  let min = Math.min(...array);
+  let missing = [];
+  for (i = min; i <= max; i++) {
+    if (!array.includes(i)) {
+      missing.push(i);
+    }
+  }
+  return missing;
+}
+console.log(findMisingElem(arrayOfIntegers));
 // /////////////task2 unique element
 // let arr = [1, 2, 2, 2, 4, 3, 3, 2, 4, 7, 5, 7, 6];
 
@@ -83,7 +72,7 @@
 
 ///////////////////////task5
 // var firstArray = [2, 2, 4, 1];
-// var secondArray = [1, 2, 0, 2]; 
+// var secondArray = [1, 2, 0, 2];
 // function productExceptSelf(arr) {
 //   return arr.map((_, i) => {
 //       return arr.reduce((mult, prev, j) => i !== j ? mult * prev : mult, 1)
